@@ -45,6 +45,7 @@ export class HomeComponent implements OnInit {
         this._data.goal.subscribe(res => this.goals = res);
         this.itemCount = this.goals.length;
         this._data.changeGoal(this.goals);
+        this.getFoods();
   	}
 
   	addItem()
@@ -63,5 +64,10 @@ export class HomeComponent implements OnInit {
   		this.goals.splice(i, 1);
         this._data.changeGoal(this.goals);
   	}
+
+    getFoods()
+    {
+        this._data.getFoods().subscribe(data => console.log(data),err => console.error(err));
+    }
 
 }
